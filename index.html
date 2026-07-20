@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desk O'clock</title>
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- JavaScript -->
+    <script src=""></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">Desk O'clock</div>
+
+        <nav class="navbar__controls">
+            <!-- Emojis will be replaced with proper icons. Used emojis as temporary placeholder for now -->
+            <button type="button" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            <button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen">⛶</button>
+            <button type="button" id="settings-toggle" aria-expanded="false">⚙️</button>
+            <!-- 
+            Settings:
+            - Change Time Format   (toggle button beside it 12H/24H)
+            - Show Seconds         (toggle button beside it On/Off)
+            
+            Change Clock Type
+            -->
+        </nav>
+    </header>
+    <main class="main-contents">
+        <div class="greeting">
+            <!-- Time-based greetings. Will vary depending on user's current time -->
+             Good Evening 👋
+        </div>
+        <div class="short-text">
+            <!-- This is placed above the clock -->
+            It's currently
+        </div>
+        <section class="clock">
+            <time class="time">
+                <!-- 
+                Default Time Format: 12H
+                Format: Hours | Minutes | Seconds (seconds can be ON/OFF)
+                -->
+
+                00:00:00
+            </time>
+            <div class="am-pm">
+                <!-- 
+                Note: Keep this beside Time
+                Condition: Default time = Display AM/PM | 24H Format = Hide AM/PM
+                -->
+
+                AM
+            </div>
+            <time class="date">
+                <!-- 
+                Format: DD | MM | YYYY • DAY
+                -->
+
+                July 20, 2026 • Monday
+            </time>
+        </section>
+    </main>
+</body>
+</html>
