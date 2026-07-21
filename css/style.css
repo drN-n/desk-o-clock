@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Geomini", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100dvh - 50px);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.75rem;
+}
+
+/* Navbar Brand */
+.brand {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+/* Navbar Buttons */
+.navbar__controls button {
+    font-size: clamp(1rem, 2vw, 3rem);
+    border: none;
+    background-color: inherit;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.navbar__controls button i {
+    color: inherit;
+}
+
+/* Main Content */
+.main-contents {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.greeting {
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.subtitle {
+    font-size: clamp(1.25rem, 3vw, 3rem);
+    margin-top: 3rem;
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    font-size: clamp(3.25rem, 8vw, 10rem);
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+.date {
+    font-size: clamp(1rem, 3vw, 3rem);
+}
