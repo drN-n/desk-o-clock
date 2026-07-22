@@ -29,7 +29,7 @@ body {
 
 /* Navbar Buttons */
 .navbar__controls button {
-    font-size: clamp(1rem, 2vw, 3rem);
+    font-size: clamp(1rem, 1.75vw, 3rem);
     border: none;
     background-color: inherit;
     padding: 0.5rem;
@@ -65,12 +65,12 @@ body {
     align-items: center;
 }
 
-.time {
+.current-time {
     font-size: clamp(3.25rem, 8vw, 10rem);
     padding: 1.5rem;
     font-weight: bold;
 }
 
-.date {
+.current-date {
     font-size: clamp(1rem, 3vw, 3rem);
 }
