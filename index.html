@@ -39,15 +39,18 @@
     <!-- Main -->
     <main class="main-contents">
         <div class="greeting">
-            <!-- Time-based greetings. Will vary depending on user's current time -->
-            Hey there, <span class="day-period"></span>!
+            Hey there, <span class="greeting_day"></span>!
         </div>
         <div class="subtitle">
             It's currently
         </div>
         <section class="clock">
-            <time class="current-time"></time>
-            <time class="current-date"></time>
+            <time class="clock_time"></time>
+            <div class="clock_date-formatter">
+                <time class="clock_date"></time>
+                <p>•</p>
+                <div class="clock_weekday"></div>
+            </div>
         </section>
     </main>
 
