@@ -1,29 +1,37 @@
-const date = new Date();
+// Elements
+const greetingElement = document.querySelector('.greeting_day');
+const clockTimeElement = document.querySelector('.clock_time');
+const clockDateElement = document.querySelector('.clock_date');
+const weekDayElement = document.querySelector('.clock_weekday');
 
-// Time Format HH:MM:SS
-const hour = date.getHours();
-const min = date.getMinutes();
-const sec = date.getSeconds();
+// Formatter
+const time12HFormatter = new Intl.DateTimeFormat(undefined, {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+});
 
-document.querySelector('.current-time').textContent = `${hour}:${min}:${sec}`;
+const time24HFormatter = new Intl.DateTimeFormat(undefined, {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+});
 
-// Date Format MM:DD:YYYY
-const monthInText = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-let month = monthInText[date.getMonth()];
-const day = date.getDate();
-const year = date.getFullYear();
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+});
 
-// Day of the week
-const weekInText = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-let dayOfWeek = weekInText[date.getDay()];
+const weekDayFormatter = new Intl.DateTimeFormat(undefined, {
+    weekday: 'long'
+});
 
-document.querySelector('.current-date').textContent = `${month} ${day}, ${year} • ${dayOfWeek}`;
 
-// Updates the greeting based on Time
-function updatePeriodOfDay() {
-    const hour = new Date().getHours();
-
-    if (hour == 0) {
+function getGreeting(hour) {
+    if (hour === 0) {
         return "it's midnight";
     } else if (hour >= 1 && hour < 12 ) {
         return "good morning";
@@ -31,7 +39,21 @@ function updatePeriodOfDay() {
         return "good afternoon";
     } else {
         return "good evening";
-    }
+    }  
 }
 
-document.querySelector('.day-period').textContent = updatePeriodOfDay();
+function updateClock() {
+    const now = new Date();
+
+    const hour = now.getHours();
+
+    greetingElement.textContent = getGreeting(hour);
+
+    clockTimeElement.textContent = time12HFormatter.format(now);
+    clockDateElement.textContent = dateFormatter.format(now);
+    weekDayElement.textContent = weekDayFormatter.format(now);
+
+}
+
+updateClock();
+setInterval(updateClock, 1000); //Updates per second

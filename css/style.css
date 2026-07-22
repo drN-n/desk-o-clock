@@ -60,17 +60,27 @@ body {
 
 .clock {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.current-time {
-    font-size: clamp(3.25rem, 8vw, 10rem);
+.clock_date-formatter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock_date-formatter p {
+    padding: 0 0.5rem;
+}
+
+.clock_time {
+    font-size: clamp(3.2rem, 8vw, 10rem);
     padding: 1.5rem;
     font-weight: bold;
 }
 
-.current-date {
+.clock_date {
     font-size: clamp(1rem, 3vw, 3rem);
 }
