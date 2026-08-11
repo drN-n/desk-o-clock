@@ -29,14 +29,19 @@
             <button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen"><i class="fa-solid fa-expand"></i></button>
             <!-- Sets the page to fullscreen mode -->
 
-            <button type="button" id="settings-toggle" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-            <!-- 
-            Settings:
-            - Change Time Format   (toggle button beside it 12H/24H)
-            - Show Seconds         (toggle button beside it On/Off)
+            <button type="button" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel"><i class="fa-solid fa-gear"></i></button>
             
-            Change Clock Type
-            -->
+            <div class="settings-panel" id="settings-panel" hidden>
+                <div class="settings-panel__title">Settings</div>
+                <div class="settings-panel__row">
+                    <span>Time Format</span>
+                    <button type="button" id="format-toggle">12H</button>
+                </div>
+                <div class="settings-panel__row">
+                    <span>Show Seconds</span>
+                    <button type="button" id="seconds-toggle">On</button>
+                </div>
+            </div>
         </nav>
     </header>
 
