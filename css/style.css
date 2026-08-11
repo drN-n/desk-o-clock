@@ -6,7 +6,22 @@
     --bg: light-dark(#F9F9FB, #121212);
     --text: light-dark(#1A1A1E, #E4E4E7);
     --icons: light-dark(#1A1A1E, #E4E4E7);
+    --accent: light-dark(#2F6FED, #5B8DEF);
+
+    --panel-border: light-dark(#1A1A1E1A, #E4E4E71F);
+    --panel-shadow: light-dark(#1414191F, #00000073);
 }
+
+/* 
+Legend (use CTRL+F): 
+- Body
+- Navbar
+  - + Brand
+  - + Buttons
+- Settings Panel
+- Main Content 
+*/
+
 
 /* Body */
 body {
@@ -43,8 +58,79 @@ body {
     color: var(--icons);
 }
 
+.navbar__controls {
+    position: relative;
+}
+
 .navbar__controls button i {
     color: inherit;
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background-color: var(--bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 32px var(--panel-shadow);
+    padding: 0.5rem;
+    flex-direction: column;
+    min-width: 220px;
+    z-index: 10;
+}
+
+.settings-panel:not([hidden]) {
+    display: flex;
+}
+
+.settings-panel__title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+    opacity: 0.55;
+    padding: 0.5rem 0.6rem 0.35rem;
+}
+
+.settings-panel__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem 0.6rem;
+    border-top: 1px solid var(--panel-border);
+}
+
+.settings-panel__row:first-of-type {
+    border-top: none;
+}
+
+.settings-panel__row span {
+    font-size: 0.95rem;
+}
+
+.settings-panel__row button {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.settings-panel__row button:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+.settings-panel__row button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 /* Main Content */
