@@ -1,7 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    color-scheme: light dark;
+
+    --bg: light-dark(#F9F9FB, #121212);
+    --text: light-dark(#1A1A1E, #E4E4E7);
+    --icons: light-dark(#1A1A1E, #E4E4E7);
 }
 
 /* Body */
@@ -10,6 +14,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: calc(100dvh - 50px);
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 /* Navbar */
@@ -34,6 +40,7 @@ body {
     background-color: inherit;
     padding: 0.5rem;
     cursor: pointer;
+    color: var(--icons);
 }
 
 .navbar__controls button i {
