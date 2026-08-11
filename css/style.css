@@ -3,12 +3,12 @@
 :root {
     color-scheme: light dark;
 
-    --bg: light-dark(#F9F9FB, #121212);
-    --text: light-dark(#1A1A1E, #E4E4E7);
-    --icons: light-dark(#1A1A1E, #E4E4E7);
+    --bg: light-dark(#F2F0EF, #121212);
+    --text: light-dark(#1C1A18, #EDEAE6);
+    --icons: light-dark(#1C1A18, #EDEAE6);
     --accent: light-dark(#2F6FED, #5B8DEF);
 
-    --panel-border: light-dark(#1A1A1E1A, #E4E4E71F);
+    --panel-border: light-dark(#1C1A181A, #EDEAE61F);
     --panel-shadow: light-dark(#1414191F, #00000073);
 }
 
