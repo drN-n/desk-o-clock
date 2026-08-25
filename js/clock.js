@@ -1,6 +1,10 @@
+import { renderFlaps } from "./flap";
+
 // Elements
 const greetingElement = document.querySelector('.greeting_day');
-const clockTimeElement = document.querySelector('.clock_time');
+const clockBoardElement = document.getElementById('clock-board');
+const clockPeriodElement = document.getElementById('clock-period');
+const clockSrTimeElement = document.getElementById('clock-sr-time');
 const clockDateElement = document.querySelector('.clock_date');
 const weekDayElement = document.querySelector('.clock_weekday');
 
@@ -32,14 +36,32 @@ const weekDayFormatter = new Intl.DateTimeFormat(undefined, {
 
 function getGreeting(hour) {
     if (hour === 0) {
-        return "IT'S MIDNIGHT";
+        return "it's midnight";
     } else if (hour >= 1 && hour < 12 ) {
-        return "GOOD MORNING";
+        return "good morning";
     } else if (hour >= 12 && hour < 18 ) {
-        return "GOOD AFTERNOON";
+        return "good afternoon";
     } else {
-        return "GOOD EVENING";
+        return "good evening";
     }  
+}
+
+function getFlapData(now) {
+    const parts = timeFormatter.formatToParts(now);
+    const flapChars = [];
+    let dayPeriod = '';
+
+    for (const part of parts) {
+        if (part.type === 'dayPeriod') {
+            dayPeriod = part.value;
+        } else if (part.type === 'literal') {
+            if (part.value === ':') flapChars.push(':');
+        } else {
+            flapChars.push(...part.value.split(''));
+        }
+    }
+
+    return { flapChars, dayPeriod };
 }
 
 function updateClock() {
@@ -49,7 +71,14 @@ function updateClock() {
 
     greetingElement.textContent = getGreeting(hour);
 
-    clockTimeElement.textContent = timeFormatter.format(now);
+    const { flapChars, dayPeriod } = getFlapData(now);
+    renderFlaps(clockBoardElement, flapChars);
+
+    clockPeriodElement.textContent = dayPeriod;
+    clockPeriodElement.hidden = !dayPeriod;
+
+    clockSrTimeElement.textContent = timeFormatter.format(now);
+
     clockDateElement.textContent = dateFormatter.format(now);
     weekDayElement.textContent = weekDayFormatter.format(now);
 
