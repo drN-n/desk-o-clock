@@ -3,10 +3,16 @@
 :root {
     color-scheme: light dark;
 
-    --bg: light-dark(#F2F0EF, #121212);
-    --text: light-dark(#1C1A18, #EDEAE6);
-    --icons: light-dark(#1C1A18, #EDEAE6);
-    --accent: light-dark(#2F6FED, #5B8DEF);
+    --bg: light-dark(#EDEAE3, #101012);
+    --text: light-dark(#1C1A18, #D8D5CE);
+    --text-dim: light-dark(#8A867D, #6E6C67);
+    --icons: light-dark(#1C1A18, #D8D5CE);
+    --accent: light-dark(#B8790A, #FFB000);
+
+    --card: light-dark(#FFFFFF, #1C1D1F);
+    --card-shade: light-dark(#F1EEE7, #17181A);
+    --seam: light-dark(#D8D3C8, #0A0A0B);
+    --card-border: light-dark(#00000014, #26262A);
 
     --panel-border: light-dark(#1C1A181A, #EDEAE61F);
     --panel-shadow: light-dark(#1414191F, #00000073);
