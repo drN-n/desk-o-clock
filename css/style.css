@@ -96,9 +96,9 @@ body {
     position: absolute;
     top: calc(100% + 0.5rem);
     right: 0;
-    background-color: var(--bg);
-    border: 1px solid var(--panel-border);
-    border-radius: 0.75rem;
+    background: linear-gradient(180deg, var(--card) 0%, var(--card-shade) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
     box-shadow: 0 12px 32px var(--panel-shadow);
     padding: 0.5rem;
     flex-direction: column;
@@ -140,7 +140,7 @@ body {
     background-color: transparent;
     color: var(--accent);
     border: 1px solid var(--accent);
-    border-radius: 999px;
+    border-radius: 0.35rem;
     padding: 0.3rem 0.85rem;
     font-size: 0.8rem;
     font-weight: bold;
