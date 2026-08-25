@@ -18,17 +18,6 @@
     --panel-shadow: light-dark(#1414191F, #00000073);
 }
 
-/* 
-Legend (use CTRL+F): 
-- Body
-- Navbar
-  - + Brand
-  - + Buttons
-- Settings Panel
-- Main Content 
-*/
-
-
 /* Body */
 body {
     font-family: "Archivo", sans-serif;
@@ -63,7 +52,7 @@ body {
 /* Navbar Brand */
 .brand {
     font-family: "Space Mono", monospace;
-    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-size: 1.5rem;
     font-weight: 700;
     padding: 0.5rem;
 }
@@ -75,7 +64,7 @@ body {
 
 /* Navbar Buttons */
 .navbar__controls button {
-    font-size: clamp(1rem, 1.75vw, 3rem);
+    font-size: 1.25rem;
     border: none;
     background-color: inherit;
     padding: 0.5rem;
@@ -89,6 +78,17 @@ body {
 
 .navbar__controls button i {
     color: inherit;
+}
+
+/* @media - Shrink Navbar on Small screens */
+@media (max-width: 640px) {
+    .brand {
+        font-size: 1.1rem;
+    }
+
+    .navbar__controls button {
+        font-size: 1rem;
+    }
 }
 
 /* Settings Panel */

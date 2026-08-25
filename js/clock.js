@@ -1,4 +1,4 @@
-import { renderFlaps } from "./flap";
+import { renderFlaps } from "./flap.js";
 
 // Elements
 const greetingElement = document.querySelector('.greeting_day');
