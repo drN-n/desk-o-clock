@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Desk O'clock</title>
 
     <!-- CSS Stylesheet -->
@@ -14,7 +15,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -24,13 +25,14 @@
 
         <nav class="navbar__controls">
             <button type="button" id="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
-            <!--  -->
 
-            <button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen"><i class="fa-solid fa-expand"></i></button>
             <!-- Sets the page to fullscreen mode -->
-
+            <button type="button" id="fullscreen-toggle" aria-label="Enter fullscreen"><i class="fa-solid fa-expand"></i></button>
+            
+            <!-- Settings button -->
             <button type="button" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel"><i class="fa-solid fa-gear"></i></button>
             
+            <!-- Settings panel/menu -->
             <div class="settings-panel" id="settings-panel" hidden>
                 <div class="settings-panel__title">Settings</div>
                 <div class="settings-panel__row">
@@ -48,13 +50,14 @@
     <!-- Main -->
     <main class="main-contents">
         <div class="greeting">
-            Hey there, <span class="greeting_day"></span>!
-        </div>
-        <div class="subtitle">
-            It's currently
+            <span class="greeting_day"></span>
         </div>
         <section class="clock">
-            <time class="clock_time"></time>
+            <div class="clock_display">
+                <div class="clock_board" id="clock-board" aria-hidden="true"></div>
+                <div class="clock_period" id="clock-period" hidden></div>
+            </div>
+            <time class="sr-only" id="clock-sr-time"></time>
             <div class="clock_date-formatter">
                 <time class="clock_date"></time>
                 <p>•</p>

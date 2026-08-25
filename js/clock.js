@@ -32,13 +32,13 @@ const weekDayFormatter = new Intl.DateTimeFormat(undefined, {
 
 function getGreeting(hour) {
     if (hour === 0) {
-        return "it's midnight";
+        return "IT'S MIDNIGHT";
     } else if (hour >= 1 && hour < 12 ) {
-        return "good morning";
+        return "GOOD MORNING";
     } else if (hour >= 12 && hour < 18 ) {
-        return "good afternoon";
+        return "GOOD AFTERNOON";
     } else {
-        return "good evening";
+        return "GOOD EVENING";
     }  
 }
 
