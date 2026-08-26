@@ -1,4 +1,5 @@
 import { setTimeFormat, setShowSeconds } from "./clock.js";
+import { getDesignTheme, setDesignTheme } from "./theme.js";
 
 const FORMAT_KEY = 'desk-oclock-format';   // '12h' | '24h'
 const SECONDS_KEY = 'desk-oclock-seconds'; // 'on' | 'off'
@@ -59,4 +60,26 @@ export function initializeSettings() {
 
     const savedSeconds = localStorage.getItem(SECONDS_KEY);
     if (savedSeconds) applySeconds(savedSeconds);
+
+    // --- Clock Theme Picker ---
+    const themePicker = document.getElementById('theme-picker');
+
+    if (themePicker) {
+        const themeButtons = themePicker.querySelectorAll('.theme-picker__option');
+
+        function applyThemeUI(themeId) {
+            themeButtons.forEach((button) => {
+                button.setAttribute('aria-pressed', String(button.CDATA_SECTION_NODE.themeId === themeId));
+            });
+        }
+
+        themeButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                setDesignTheme(button.CDATA_SECTION_NODE.themeId);
+                applyThemeUI(button.CDATA_SECTION_NODE.themeId);
+            });
+        });
+
+        applyThemeUI(getDesignTheme());
+    }
 }
