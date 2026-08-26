@@ -43,6 +43,13 @@
                     <span>Show Seconds</span>
                     <button type="button" id="seconds-toggle">On</button>
                 </div>
+                <div class="settings-panel__row settings-panel__row--column">
+                    <span>Clock Style</span>
+                    <div class="theme-picker" id="theme-picker" role="group" aria-label="Clock style">
+                        <button type="button" class="theme-picker__option" data-theme-id="split-flap">Split-Flap</button>
+                        <button type="button" class="theme-picker__option" data-theme-id="ambient-daylight">Ambient</button>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -53,10 +60,19 @@
             <span class="greeting_day"></span>
         </div>
         <section class="clock">
-            <div class="clock_display">
-                <div class="clock_board" id="clock-board" aria-hidden="true"></div>
-                <div class="clock_period" id="clock-period" hidden></div>
+            <!-- Split Flap -->
+             <div class="theme-face theme-face--split-flap">
+                <div class="clock_display">
+                    <div class="clock_board" id="clock-board" aria-hidden="true"></div>
+                    <div class="clock_period" id="clock-period" hidden></div>
+                </div>
+             </div>
+            
+            <!-- Ambient Daylight -->
+            <div class="theme-face theme-face--ambient-daylight">
+                <time class="ambient_time" id="ambient-time"></time>
             </div>
+
             <time class="sr-only" id="clock-sr-time"></time>
             <div class="clock_date-formatter">
                 <time class="clock_date"></time>
