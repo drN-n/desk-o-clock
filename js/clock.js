@@ -1,10 +1,12 @@
 import { renderFlaps } from "./flap.js";
+import { onThemeChange } from "./theme.js";
 
 // Elements
 const greetingElement = document.querySelector('.greeting_day');
 const clockBoardElement = document.getElementById('clock-board');
 const clockPeriodElement = document.getElementById('clock-period');
 const clockSrTimeElement = document.getElementById('clock-sr-time');
+const ambientTimeElement = document.getElementById('ambient-time');
 const clockDateElement = document.querySelector('.clock_date');
 const weekDayElement = document.querySelector('.clock_weekday');
 
@@ -68,26 +70,40 @@ function updateClock() {
     const now = new Date();
 
     const hour = now.getHours();
+    const minute = now.getMinutes();
+    const formattedTime = timeFormatter.format(now);
 
     greetingElement.textContent = getGreeting(hour);
 
     const { flapChars, dayPeriod } = getFlapData(now);
-    renderFlaps(clockBoardElement, flapChars);
 
-    clockPeriodElement.textContent = dayPeriod;
-    clockPeriodElement.hidden = !dayPeriod;
+    renderClockFace(
+        {
+            board: clockBoardElement,
+            period: clockPeriodElement,
+            ambientTime: ambientTimeElement,
+        },
+        {
+            flapChars,
+            dayPeriod,
+            formattedTime,
+            hour,
+            minute,
+        }
+    );
 
-    clockSrTimeElement.textContent = timeFormatter.format(now);
+    clockSrTimeElement.textContent = formattedTime;
 
     clockDateElement.textContent = dateFormatter.format(now);
     weekDayElement.textContent = weekDayFormatter.format(now);
-
 }
 
 
 export function initializeClock() {
     updateClock();
     setInterval(updateClock, 1000); //Updates per second
+    // Instant re-render instead of waiting
+    onThemeChange(updateClock);
 }
 
 // Called by settings.js
