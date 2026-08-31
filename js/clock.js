@@ -1,4 +1,4 @@
-import { renderFlaps } from "./flap.js";
+import { renderClockFace } from "./render.js";
 import { onThemeChange } from "./theme.js";
 
 // Elements
