@@ -1,6 +1,6 @@
 // Theme Manager
 
-const THEME_KEY = 'desk-ocock-design-theme';
+const THEME_KEY = 'desk-oclock-design-theme';
 const DEFAULT_THEME = 'split-flap';
 
 // Themes
