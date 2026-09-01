@@ -9,11 +9,11 @@ const DUSK = [[242, 148, 107], [164, 90, 135], [75, 52, 102]];
 
 // Anchors span a FULL 24h cycle
 const ANCHORS = [
-    { hour: 0, color: NIGHT },
-    { hour: 6, color: DAWN },
-    { hour: 12, color: NOON },
-    { hour: 18, color: DUSK },
-    { hour: 24, color: NIGHT },
+    { hour: 0, colors: NIGHT },
+    { hour: 6, colors: DAWN },
+    { hour: 12, colors: NOON },
+    { hour: 18, colors: DUSK },
+    { hour: 24, colors: NIGHT },
 ];
 
 // Recompute + write the DOM once a minute, not every second
@@ -38,7 +38,7 @@ function rgbString([r, g, b]) {
 
 // Finds the two anchors the given decimal hour (e.g. 14.5 = 2:30pm)
 // falls between, plus how far between them it is (0 to 1).
-function findSurroundingAnchros(hourDecimal) {
+function findSurroundingAnchors(hourDecimal) {
     for (let i = 0; i < ANCHORS.length - 1; i++) {
         const from = ANCHORS[i];
         const to = ANCHORS[i + 1];
@@ -55,14 +55,14 @@ function findSurroundingAnchros(hourDecimal) {
 }
 
 function buildGradient(hourDecimal) {
-    const { from, to, progress } = findSurroundingAnchros(hourDecimal);
+    const { from, to, progress } = findSurroundingAnchors(hourDecimal);
 
     const stop = from.colors.map((colorA, i) => {
         const colorB = to.colors[i];
         return rgbString(lerpColor(colorA, colorB, progress));
     });
 
-    return `linear-gradient(180dog, ${stop[0]} 0%, ${stops[1]} 55%, ${stops[2]} 100%)`;
+    return `linear-gradient(180deg, ${stop[0]} 0%, ${stop[1]} 55%, ${stop[2]} 100%)`;
 }
 
 export function renderAmbient(elements, data) {
@@ -73,7 +73,7 @@ export function renderAmbient(elements, data) {
 
     const minuteKey = hour * 60 + minute;
     if (minuteKey !== lastMinuteKey) {
-        lastMinuteKey = minuteKeyl
+        lastMinuteKey = minuteKey;
         const hourDecimal = hour + minute / 60;
         document.documentElement.style.setProperty('--ambient-bg', buildGradient(hourDecimal));
     }

@@ -69,14 +69,14 @@ export function initializeSettings() {
 
         function applyThemeUI(themeId) {
             themeButtons.forEach((button) => {
-                button.setAttribute('aria-pressed', String(button.CDATA_SECTION_NODE.themeId === themeId));
+                button.setAttribute('aria-pressed', String(button.dataset.themeId === themeId));
             });
         }
 
         themeButtons.forEach((button) => {
             button.addEventListener('click', () => {
-                setDesignTheme(button.CDATA_SECTION_NODE.themeId);
-                applyThemeUI(button.CDATA_SECTION_NODE.themeId);
+                setDesignTheme(button.dataset.themeId);
+                applyThemeUI(button.dataset.themeId);
             });
         });
 
